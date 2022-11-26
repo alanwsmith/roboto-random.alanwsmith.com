@@ -16,6 +16,22 @@ const limits = {
     YTFI: [560, 788],
 }
 
+const home = {
+    wght: 400,
+    wdth: 110,
+    opsz: 20,
+    GRAD: 20,
+    slnt: 0,
+    XTRA: 480,
+    XOPQ: 100,
+    YOPQ: 80,
+    YTLC: 490,
+    YTUC: 600,
+    YTAS: 700,
+    YTDE: -140,
+    YTFI: 620,
+}
+
 const current = {
     wght: 400,
     wdth: 110,
@@ -32,16 +48,34 @@ const current = {
     YTFI: 620,
 }
 
+const getRandomObjectKey = (inputObj) => {
+    const keys = Object.keys(inputObj)
+    const randomKey = keys[Math.floor(Math.random() * keys.length)]
+    return randomKey
+}
+
+let variations = 0
+
 const getString = () => {
     const assembler = []
+    const alterKey = getRandomObjectKey(current)
+    console.log(alterKey)
+
     for (const k in current) {
+        if (k === alterKey) {
+            const min = limits[k][0]
+            const max = limits[k][1]
+            const newValue = Math.floor(Math.random() * (max - min + 1) + min)
+            current[k] = newValue
+        }
         assembler.push(`"${k}" ${current[k]}`)
     }
+
     return assembler.join(',')
 }
 
 const update = () => {
-    console.log(getString())
+    // console.log(getString())
     // els.btn.innerHTML = 'asdf'
     // els.btn.style.fontSize = '4rem'
     // els.btn.style.fontVariationSettings = { "'wght'": 700 }
@@ -49,7 +83,7 @@ const update = () => {
     // els.btn.style.fontVariationSettings.wght = '900'
     // els.btn.style.fontVariationSettings = `"wght" 100, "wdth" 100`
     els.btn.style.fontVariationSettings = getString()
-    console.log(els.btn.style)
+    // console.log(els.btn.style)
 }
 
 document.addEventListener('DOMContentLoaded', () => {

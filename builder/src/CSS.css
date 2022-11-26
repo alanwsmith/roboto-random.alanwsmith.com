@@ -49,13 +49,13 @@ body {
     'YTAS' 700, 'YTDE' -140, 'YTFI' 620;
 }
 
-/* #alfa { */
-/*   transition: font-variation-settings 2s; */
-/* } */
-
 #alfa {
-  transition: all 3s;
+  transition: font-variation-settings 2s;
 }
+
+/* #alfa { */
+/*   transition: all 3s; */
+/* } */
 
 /* #alfa { */
 /*   transition: font-size 3s; */
@@ -66,5 +66,18 @@ body {
 /* } */
 
 /* #alfa { */
-/*   animation: 3s ease-in 1s infinite test3; */
+/*   animation: 2s alternate 1s infinite test4; */
 /* } */
+
+@keyframes test4 {
+  from {
+    font-variation-settings: 'wght' 400, 'wdth' 110, 'opsz' 20, 'GRAD' 20,
+      'slnt' 0, 'XTRA' 480, 'XOPQ' 100, 'YOPQ' 80, 'YTLC' 490, 'YTUC' 600,
+      'YTAS' 700, 'YTDE' -140, 'YTFI' 620;
+  }
+  to {
+    font-variation-settings: 'wght' 100, 'wdth' 110, 'opsz' 20, 'GRAD' 20,
+      'slnt' -10, 'XTRA' 480, 'XOPQ' 100, 'YOPQ' 80, 'YTLC' 490, 'YTUC' 600,
+      'YTAS' 700, 'YTDE' -140, 'YTFI' 620;
+  }
+}

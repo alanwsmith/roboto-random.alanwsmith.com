@@ -59,8 +59,15 @@ let variations = 0
 const getString = () => {
     const assembler = []
     const alterKey = getRandomObjectKey(current)
+
+    variations = variations === 11 ? 0 : (variations += 1)
+
     for (const k in current) {
-        if (Math.floor(Math.random() * 4) === 1) {
+        // reset to the home settings every now and then
+        if (variations === 0) {
+            current[k] = home[k]
+        }
+        if (Math.floor(Math.random() * 16) === 1) {
             current['slnt'] = 0
         }
         if (k === alterKey) {
@@ -87,13 +94,10 @@ const update = () => {
     if (theTimeout) {
         clearTimeout(theTimeout)
     }
-    theTimeout = setTimeout(
-        () => {
-            els.btn.style.fontVariationSettings = getString()
-            update()
-        },
-        1500
-    )
+    theTimeout = setTimeout(() => {
+        els.btn.style.fontVariationSettings = getString()
+        update()
+    }, 1500)
 }
 
 document.addEventListener('DOMContentLoaded', () => {

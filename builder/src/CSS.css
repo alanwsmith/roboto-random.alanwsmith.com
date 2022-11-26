@@ -3,68 +3,89 @@
   src: url('/fonts/RobotoFlex.ttf') format('opentype');
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html,
 body {
-  background-color: #000000;
-  color: #123433;
+  height: 100%;
+}
+body {
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #211717;
+  color: #dfddc7;
   font-family: 'RobotoFlex';
+  height: 100%;
 }
 
-/* @keyframes sun-rise { */
-/*   from { */
-/*     /1* pushes the sun down past the viewport *1/ */
-/*     transform: translateY(110vh); */
-/*   } */
-/*   to { */
-/*     /1* returns the sun to its default position *1/ */
-/*     transform: translateY(0); */
-/*   } */
-/* } */
+#wrapper {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 100%;
+}
 
-/* @keyframes breathe { */
-/*   60% { */
-/*     font-variation-settings: 'wght' 700, 'wdth' 100; */
-/*   } */
-/*   100% { */
-/*     font-variation-settings: 'wght' 100, 'wdth' 85; */
-/*   } */
-/* } */
+a {
+  color: #a34a28;
+  text-decoration: none;
+}
 
-/* @keyframes test3 { */
-/*   from { */
-/*     font-variation-settings: 'wdth' 100; */
-/*   } */
-/*   to { */
-/*     font-variation-settings: 'wght' 700; */
-/*   } */
-/* } */
-
-/* #alfa { */
-/*   font-variation-settings: 'wght' 400, 'wdth' 25; */
-/* } */
+footer {
+  text-align: center;
+}
 
 #alfa {
-  font-size: 4rem;
-  font-variation-settings: 'wght' 400, 'wdth' 30, 'opsz' 20, 'GRAD' 0, 'slnt' 0,
-    'XTRA' 0, 'XOPQ' 100, 'YOPQ' 75, 'YTLC' 500, 'YTUC' 600, 'YTAS' 700,
-    'YTDE' -150, 'YTFI' 600;
+  font-size: 4.6rem;
+  font-variation-settings: 'wght' 400, 'wdth' 110, 'opsz' 20, 'GRAD' 20,
+    'slnt' 0, 'XTRA' 480, 'XOPQ' 100, 'YOPQ' 80, 'YTLC' 490, 'YTAS' 700,
+    'YTDE' -140;
 }
-
-/* #alfa { */
-/*   transition: font-variation-settings 2s; */
-/* } */
 
 #alfa {
-  transition: all 3s;
+  text-align: center;
+  transition: font-variation-settings 1.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
-
-/* #alfa { */
-/*   transition: font-size 3s; */
-/* } */
-
-/* #alfa { */
-/*   transition: all 2.1s; */
-/* } */
-
-/* #alfa { */
-/*   animation: 3s ease-in 1s infinite test3; */
-/* } */

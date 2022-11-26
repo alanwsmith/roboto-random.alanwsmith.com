@@ -38,71 +38,92 @@
   src: url('/fonts/RobotoFlex.ttf') format('opentype');
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html,
 body {
-  background-color: #000000;
-  color: #123433;
+  height: 100%;
+}
+body {
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #211717;
+  color: #dfddc7;
   font-family: 'RobotoFlex';
+  height: 100%;
 }
 
-/* @keyframes sun-rise { */
-/*   from { */
-/*     /1* pushes the sun down past the viewport *1/ */
-/*     transform: translateY(110vh); */
-/*   } */
-/*   to { */
-/*     /1* returns the sun to its default position *1/ */
-/*     transform: translateY(0); */
-/*   } */
-/* } */
+#wrapper {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 100%;
+}
 
-/* @keyframes breathe { */
-/*   60% { */
-/*     font-variation-settings: 'wght' 700, 'wdth' 100; */
-/*   } */
-/*   100% { */
-/*     font-variation-settings: 'wght' 100, 'wdth' 85; */
-/*   } */
-/* } */
+a {
+  color: #a34a28;
+  text-decoration: none;
+}
 
-/* @keyframes test3 { */
-/*   from { */
-/*     font-variation-settings: 'wdth' 100; */
-/*   } */
-/*   to { */
-/*     font-variation-settings: 'wght' 700; */
-/*   } */
-/* } */
-
-/* #alfa { */
-/*   font-variation-settings: 'wght' 400, 'wdth' 25; */
-/* } */
+footer {
+  text-align: center;
+}
 
 #alfa {
-  font-size: 4rem;
-  font-variation-settings: 'wght' 400, 'wdth' 30, 'opsz' 20, 'GRAD' 0, 'slnt' 0,
-    'XTRA' 0, 'XOPQ' 100, 'YOPQ' 75, 'YTLC' 500, 'YTUC' 600, 'YTAS' 700,
-    'YTDE' -150, 'YTFI' 600;
+  font-size: 4.6rem;
+  font-variation-settings: 'wght' 400, 'wdth' 110, 'opsz' 20, 'GRAD' 20,
+    'slnt' 0, 'XTRA' 480, 'XOPQ' 100, 'YOPQ' 80, 'YTLC' 490, 'YTAS' 700,
+    'YTDE' -140;
 }
-
-/* #alfa { */
-/*   transition: font-variation-settings 2s; */
-/* } */
 
 #alfa {
-  transition: all 3s;
+  text-align: center;
+  transition: font-variation-settings 1.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
-
-/* #alfa { */
-/*   transition: font-size 3s; */
-/* } */
-
-/* #alfa { */
-/*   transition: all 2.1s; */
-/* } */
-
-/* #alfa { */
-/*   animation: 3s ease-in 1s infinite test3; */
-/* } */
 
     </style>
     <script>
@@ -118,47 +139,116 @@ const limits = {
     XOPQ: [27, 175],
     YOPQ: [25, 135],
     YTLC: [416, 570],
-    YTUC: [528, 760],
+    // YTUC: [528, 760],
     YTAS: [649, 854],
     YTDE: [-305, -98],
-    YTFI: [560, 788]
+    // YTFI: [560, 788],
 }
 
+const home = {
+    wght: 400,
+    wdth: 110,
+    opsz: 20,
+    GRAD: 20,
+    slnt: 0,
+    XTRA: 480,
+    XOPQ: 100,
+    YOPQ: 80,
+    YTLC: 490,
+    // YTUC: 600,
+    YTAS: 700,
+    YTDE: -140,
+    // YTFI: 620,
+}
+
+const current = {
+    wght: 400,
+    wdth: 110,
+    opsz: 20,
+    GRAD: 20,
+    slnt: 0,
+    XTRA: 480,
+    XOPQ: 100,
+    YOPQ: 80,
+    YTLC: 490,
+    // YTUC: 600, # just capitals
+    YTAS: 700,
+    YTDE: -140,
+    // YTFI: 620, # just numbers
+}
+
+const getRandomObjectKey = (inputObj) => {
+    const keys = Object.keys(inputObj)
+    const randomKey = keys[Math.floor(Math.random() * keys.length)]
+    return randomKey
+}
+
+let variations = 0
+
+const getString = () => {
+    const assembler = []
+    const alterKey = getRandomObjectKey(current)
+
+    variations = variations === 11 ? 0 : (variations += 1)
+
+    for (const k in current) {
+        // reset to the home settings every now and then
+        if (variations === 0) {
+            current[k] = home[k]
+        }
+        if (Math.floor(Math.random() * 16) === 1) {
+            current['slnt'] = 0
+        }
+        if (k === alterKey) {
+            const min = limits[k][0]
+            const max = limits[k][1]
+            const newValue = Math.floor(Math.random() * (max - min + 1) + min)
+            current[k] = newValue
+        }
+        assembler.push(`"${k}" ${current[k]}`)
+    }
+    return assembler.join(',')
+}
+
+let theTimeout = null
+
 const update = () => {
+    // console.log(getString())
     // els.btn.innerHTML = 'asdf'
     // els.btn.style.fontSize = '4rem'
     // els.btn.style.fontVariationSettings = { "'wght'": 700 }
     // els.btn.style.fontVariationSettings.wdth = '100px'
     // els.btn.style.fontVariationSettings.wght = '900'
-    els.btn.style.fontVariationSettings = `"wght" 100, "wdth" 100`
-    console.log(els.btn.style)
+    // els.btn.style.fontVariationSettings = `"wght" 100, "wdth" 100`
+    if (theTimeout) {
+        clearTimeout(theTimeout)
+    }
+    theTimeout = setTimeout(() => {
+        els.btn.style.fontVariationSettings = getString()
+        update()
+    }, 1500)
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     els.btn = document.getElementById('alfa')
-    els.btn.addEventListener('click', update)
+    update()
+    // els.btn.addEventListener('click', update)
 })
 
     </script>
   </head>
   <body>
-    <header>
-      <a href="/">Home</a> ~
-      <a href="https://www.alanwsmith.com/">alanwsmith.com</a> ~
-      <a href="https://links.alanwsmith.com">links</a> ~
-      <a href="https://podcast.alanwsmith.com/">podcast</a>
-    </header>
-    <main>
-      <h1>Roboto Random</h1>
-      <div id="alfa">the quick brown fox</div>
-
-    </main>
-    <footer>
-      made by <a href="https://twitter.com/TheIdOfAlan">alan w. smith</a>
-      <br />
-      who has a <a href="https://www.alanwsmith.com">website</a> and a
-      <a href="https://podcast.alanwsmith.com/">podcast</a> <br />
-      among other <a href="https://links.alanwsmith.com">things</a>
-    </footer>
+    <div id="wrapper">
+      <main><div id="alfa">the quick brown fox</div>
+</main>
+      <footer>
+        <a href="/details.html">details</a><br />
+        from <a href="https://hachyderm.io/@TheIdOfAlan">alan w. smith</a>
+        <br />
+        <a href="https://www.alanwsmith.com">main site</a> ~
+        <a href="https://links.alanwsmith.com">links</a> ~
+        <a href="https://podcast.alanwsmith.com">podcast</a>
+      </footer>
+    </div>
   </body>
 </html>

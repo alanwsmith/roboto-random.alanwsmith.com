@@ -57,6 +57,7 @@ body {
 }
 
 #alfa {
+  text-align: center;
   transition: font-variation-settings 1.4s;
 }
 

@@ -42,10 +42,10 @@ const current = {
     XOPQ: 100,
     YOPQ: 80,
     YTLC: 490,
-    YTUC: 600,
+    // YTUC: 600, # just capitals
     YTAS: 700,
     YTDE: -140,
-    YTFI: 620,
+    // YTFI: 620, # just numbers
 }
 
 const getRandomObjectKey = (inputObj) => {
@@ -59,8 +59,6 @@ let variations = 0
 const getString = () => {
     const assembler = []
     const alterKey = getRandomObjectKey(current)
-    console.log(alterKey)
-
     for (const k in current) {
         if (k === alterKey) {
             const min = limits[k][0]
@@ -70,7 +68,6 @@ const getString = () => {
         }
         assembler.push(`"${k}" ${current[k]}`)
     }
-
     return assembler.join(',')
 }
 

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roboto Random</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Roboto Random" />
+    <meta
+      property="og:description"
+      content="Playing around with Roboto Flex randomly"
+    />
+    <meta
+      property="og:image"
+      content="https://www.alanwsmith.comhttps://res.cloudinary.com/awsimages/image/upload/w_1200,h_630,o_0,b_rgb:000000/c_fit,w_1020,h_430,co_rgb:eeeeee,l_text:Abhaya%20Libre_80_bold:Guess%20who%20forgot%20to%20update%20the%20social%20media%20preview%20image.../fl_layer_apply,g_north_west,x_65,y_65/co_rgb:666666,l_text:Inconsolata_42_bold:from%20alan%20w.%20smith/fl_layer_apply,g_south_west,x_65,y_45/co_rgb:666666,l_text:Inconsolata_42_bold:alanwsmith.com/fl_layer_apply,g_south_east,x_65,y_45/1x1.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site:id" content="@TheIdOfAlan" />
+    <meta name="twitter:creator" content="@TheIdOfAlan" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="228x228"
+      href="/favicons/228x228.png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      sizes="180x180"
+      href="/favicons/180x180.png"
+    />
+
+    
+
+
+    <style>
+      @font-face {
+  font-family: 'RobotoFlex';
+  src: url('/fonts/RobotoFlex.ttf') format('opentype');
+}
+
+body {
+  background-color: #000000;
+  color: #123433;
+  font-family: 'RobotoFlex';
+}
+
+/* @keyframes sun-rise { */
+/*   from { */
+/*     /1* pushes the sun down past the viewport *1/ */
+/*     transform: translateY(110vh); */
+/*   } */
+/*   to { */
+/*     /1* returns the sun to its default position *1/ */
+/*     transform: translateY(0); */
+/*   } */
+/* } */
+
+/* @keyframes breathe { */
+/*   60% { */
+/*     font-variation-settings: 'wght' 700, 'wdth' 100; */
+/*   } */
+/*   100% { */
+/*     font-variation-settings: 'wght' 100, 'wdth' 85; */
+/*   } */
+/* } */
+
+/* @keyframes test3 { */
+/*   from { */
+/*     font-variation-settings: 'wdth' 100; */
+/*   } */
+/*   to { */
+/*     font-variation-settings: 'wght' 700; */
+/*   } */
+/* } */
+
+/* #alfa { */
+/*   font-variation-settings: 'wght' 400, 'wdth' 25; */
+/* } */
+
+#alfa {
+  font-size: 4rem;
+  font-variation-settings: 'wght' 400, 'wdth' 30, 'opsz' 20, 'GRAD' 0, 'slnt' 0,
+    'XTRA' 0, 'XOPQ' 100, 'YOPQ' 75, 'YTLC' 500, 'YTUC' 600, 'YTAS' 700,
+    'YTDE' -150, 'YTFI' 600;
+}
+
+/* #alfa { */
+/*   transition: font-variation-settings 2s; */
+/* } */
+
+#alfa {
+  transition: all 3s;
+}
+
+/* #alfa { */
+/*   transition: font-size 3s; */
+/* } */
+
+/* #alfa { */
+/*   transition: all 2.1s; */
+/* } */
+
+/* #alfa { */
+/*   animation: 3s ease-in 1s infinite test3; */
+/* } */
+
+    </style>
+    <script>
+      const els = {}
+
+const limits = {
+    wght: [100, 1000],
+    wdth: [25, 151],
+    opsz: [8, 144],
+    GRAD: [-200, 150],
+    slnt: [-10, 0],
+    XTRA: [323, 603],
+    XOPQ: [27, 175],
+    YOPQ: [25, 135],
+    YTLC: [416, 570],
+    YTUC: [528, 760],
+    YTAS: [649, 854],
+    YTDE: [-305, -98],
+    YTFI: [560, 788]
+}
+
+const update = () => {
+    // els.btn.innerHTML = 'asdf'
+    // els.btn.style.fontSize = '4rem'
+    // els.btn.style.fontVariationSettings = { "'wght'": 700 }
+    // els.btn.style.fontVariationSettings.wdth = '100px'
+    // els.btn.style.fontVariationSettings.wght = '900'
+    els.btn.style.fontVariationSettings = `"wght" 100, "wdth" 100`
+    console.log(els.btn.style)
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    els.btn = document.getElementById('alfa')
+    els.btn.addEventListener('click', update)
+})
+
+    </script>
+  </head>
+  <body>
+    <header>
+      <a href="/">Home</a> ~
+      <a href="https://www.alanwsmith.com/">alanwsmith.com</a> ~
+      <a href="https://links.alanwsmith.com">links</a> ~
+      <a href="https://podcast.alanwsmith.com/">podcast</a>
+    </header>
+    <main>
+      <h1>Roboto Random</h1>
+      <div id="alfa">the quick brown fox</div>
+
+    </main>
+    <footer>
+      made by <a href="https://twitter.com/TheIdOfAlan">alan w. smith</a>
+      <br />
+      who has a <a href="https://www.alanwsmith.com">website</a> and a
+      <a href="https://podcast.alanwsmith.com/">podcast</a> <br />
+      among other <a href="https://links.alanwsmith.com">things</a>
+    </footer>
+  </body>
+</html>

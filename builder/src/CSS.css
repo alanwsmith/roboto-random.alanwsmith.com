@@ -1,0 +1,70 @@
+@font-face {
+  font-family: 'RobotoFlex';
+  src: url('/fonts/RobotoFlex.ttf') format('opentype');
+}
+
+body {
+  background-color: #000000;
+  color: #123433;
+  font-family: 'RobotoFlex';
+}
+
+/* @keyframes sun-rise { */
+/*   from { */
+/*     /1* pushes the sun down past the viewport *1/ */
+/*     transform: translateY(110vh); */
+/*   } */
+/*   to { */
+/*     /1* returns the sun to its default position *1/ */
+/*     transform: translateY(0); */
+/*   } */
+/* } */
+
+/* @keyframes breathe { */
+/*   60% { */
+/*     font-variation-settings: 'wght' 700, 'wdth' 100; */
+/*   } */
+/*   100% { */
+/*     font-variation-settings: 'wght' 100, 'wdth' 85; */
+/*   } */
+/* } */
+
+/* @keyframes test3 { */
+/*   from { */
+/*     font-variation-settings: 'wdth' 100; */
+/*   } */
+/*   to { */
+/*     font-variation-settings: 'wght' 700; */
+/*   } */
+/* } */
+
+/* #alfa { */
+/*   font-variation-settings: 'wght' 400, 'wdth' 25; */
+/* } */
+
+#alfa {
+  font-size: 4rem;
+  font-variation-settings: 'wght' 400, 'wdth' 30, 'opsz' 20, 'GRAD' 0, 'slnt' 0,
+    'XTRA' 0, 'XOPQ' 100, 'YOPQ' 75, 'YTLC' 500, 'YTUC' 600, 'YTAS' 700,
+    'YTDE' -150, 'YTFI' 600;
+}
+
+/* #alfa { */
+/*   transition: font-variation-settings 2s; */
+/* } */
+
+#alfa {
+  transition: all 3s;
+}
+
+/* #alfa { */
+/*   transition: font-size 3s; */
+/* } */
+
+/* #alfa { */
+/*   transition: all 2.1s; */
+/* } */
+
+/* #alfa { */
+/*   animation: 3s ease-in 1s infinite test3; */
+/* } */

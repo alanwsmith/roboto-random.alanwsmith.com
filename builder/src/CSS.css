@@ -44,9 +44,9 @@ body {
 
 #alfa {
   font-size: 4rem;
-  font-variation-settings: 'wght' 400, 'wdth' 30, 'opsz' 20, 'GRAD' 0, 'slnt' 0,
-    'XTRA' 0, 'XOPQ' 100, 'YOPQ' 75, 'YTLC' 500, 'YTUC' 600, 'YTAS' 700,
-    'YTDE' -150, 'YTFI' 600;
+  font-variation-settings: 'wght' 400, 'wdth' 110, 'opsz' 20, 'GRAD' 20,
+    'slnt' 0, 'XTRA' 480, 'XOPQ' 100, 'YOPQ' 80, 'YTLC' 490, 'YTUC' 600,
+    'YTAS' 700, 'YTDE' -140, 'YTFI' 620;
 }
 
 /* #alfa { */

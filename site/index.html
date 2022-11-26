@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Hi there - welcome to the code. it's pretty hacky
+      since I didn't use a framework. Don't be surprised if
+      you end up scratching your head about something -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Roboto Random</title>
@@ -12,7 +15,7 @@
     />
     <meta
       property="og:image"
-      content="https://res.cloudinary.com/awsimages/image/upload/w_1200,h_630,o_0,b_rgb:000000/c_fit,w_1020,h_430,co_rgb:eeeeee,l_text:Roboto_148_bold:Roboto%20Random/fl_layer_apply,g_north_west,x_65,y_65/co_rgb:666666,l_text:Inconsolata_42_bold:from%20alan%20w.%20smith/fl_layer_apply,g_south_east,x_65,y_45/1x1.png"
+      content="https://res.cloudinary.com/awsimages/image/upload/w_1200,h_630,o_0,b_rgb:211717/c_fit,w_1020,h_430,co_rgb:dfddc7,l_text:Roboto_148_bold:Roboto%20Random/fl_layer_apply,g_north_west,x_65,y_65/co_rgb:666666,l_text:Inconsolata_42_bold:from%20alan%20w.%20smith/fl_layer_apply,g_south_east,x_65,y_45/1x1.png"
     />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site:id" content="@TheIdOfAlan" />
@@ -96,7 +99,7 @@ body {
 #wrapper {
   min-height: 100%;
   display: grid;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
 }
 
@@ -107,6 +110,7 @@ a {
 
 footer {
   text-align: center;
+  padding-bottom: 10px;
 }
 
 #alfa {
@@ -123,6 +127,13 @@ footer {
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+.details {
+  padding-top: 30px;
+  text-align: left;
+  max-width: 550px;
+  margin: auto;
 }
 
     </style>
@@ -239,14 +250,15 @@ document.addEventListener('DOMContentLoaded', () => {
   </head>
   <body>
     <div id="wrapper">
+      <header></header>
       <main><div id="alfa">the quick brown fox</div>
 </main>
       <footer>
-        <a href="/details.html">details</a><br />
         from <a href="https://hachyderm.io/@TheIdOfAlan">alan w. smith</a>
         <br />
+        <a href="/details.html">details</a> ~
         <a href="https://www.alanwsmith.com">main site</a> ~
-        <a href="https://links.alanwsmith.com">links</a> ~
+        <a href="https://links.alanwsmith.com">other sites</a> ~
         <a href="https://podcast.alanwsmith.com">podcast</a>
       </footer>
     </div>
